@@ -18,25 +18,29 @@ function RejectModal() {
       {isOpen && (
         <div className="overlay">
           <div className="popup">
-            <span className="close-btn" onClick={handleClose}>&times;</span>
-            <h2>Từ chối duyệt kết quả</h2>
-
-            <label htmlFor="reason">
-              Mô tả lý do <span style={{ color: 'red' }}>*</span>
-            </label>
-
-            <div className="textarea-wrapper">
-              <textarea
-                id="reason"
-                placeholder="Nhập nội dung"
-                maxLength="250"
-                value={reason}
-                onChange={(e) => setReason(e.target.value)}
-              ></textarea>
-              <div className="textarea-footer">{reason.length}/250</div>
+            <div className="popup-header">
+              <h2>Từ chối duyệt kết quả</h2>
+              <span className="close-btn" onClick={handleClose}>&times;</span>
             </div>
 
-            <div className="actions">
+            <div className="popup-body">
+              <label htmlFor="reason">
+                Mô tả lý do <span style={{ color: 'red' }}>*</span>
+              </label>
+
+              <div className="textarea-wrapper">
+                <textarea
+                  id="reason"
+                  placeholder="Nhập nội dung"
+                  maxLength="250"
+                  value={reason}
+                  onChange={(e) => setReason(e.target.value)}
+                ></textarea>
+                <div className="textarea-footer">{reason.length}\250</div>
+              </div>
+            </div>
+
+            <div className="popup-footer">
               <button className="btn-cancel" onClick={handleClose}>Hủy</button>
               <button
                 className={`btn-confirm ${reason.trim() ? 'enabled' : ''}`}
